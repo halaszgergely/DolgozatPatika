@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Saját szöveg";
+}
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Név</td>
+                <td>Hatóanyag</td>
+                <td>Vényköteles</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var gyogyszer in Model)
+            {
+                <tr>
+                    <td><a asp-route-Id="@gyogyszer.Id" asp-action="GetById">@gyogyszer.Nev</a></td>
+                    <td>@gyogyszer.Hatoanyag</td>
+                    @if (gyogyszer.Venykoteles)
+                    {
+                        <td><input type = "checkbox" checked/></td>
+                    }
+                    else{
+                        <td><input type="checkbox"/></td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+
